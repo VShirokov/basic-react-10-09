@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Comments from './Comments';
+import CommentsList from './CommentsList';
 
 class Article extends Component {
 
@@ -19,7 +19,7 @@ class Article extends Component {
                     <section>
                         <p>{ article.text }</p>
                         <br />
-                        <Comments usersComments={ comments } />
+                        <CommentsList usersComments={ comments } />
                     </section> }
             </div>
         );
