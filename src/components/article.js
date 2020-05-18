@@ -1,25 +1,33 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react';
+import Comments from './Comments';
 
-class Article extends PureComponent {
-  render() {
-    console.log('---', 'rendering')
-    const { article, isOpen } = this.props
-    return (
-      <div>
-        <div>
-          <h3 ref={this.setTitleRef}>{article.title}</h3>
-          <button onClick={this.handleBtnClick}>
-            {isOpen ? 'close' : 'open'}
-          </button>
-        </div>
-        {isOpen && <section>{article.text}</section>}
-      </div>
-    )
-  }
+class Article extends Component {
 
-  setTitleRef = (titleRef) => console.log(titleRef)
+    render() {
+        const { article, isOpen } = this.props;
+        const { comments } = article;
 
-  handleBtnClick = () => this.props.toggleOpen(this.props.article.id)
+        return (
+            <div>
+                <div>
+                    <h3 ref={ this.setTitleRef }>{ article.title }</h3>
+                    <button onClick={ this.handleBtnClick }>
+                        { isOpen ? 'close' : 'open' }
+                    </button>
+                </div>
+                { isOpen &&
+                    <section>
+                        <p>{ article.text }</p>
+                        <br />
+                        <Comments usersComments={ comments } />
+                    </section> }
+            </div>
+        );
+    }
+
+    // setTitleRef = (titleRef) => console.log(titleRef);
+
+    handleBtnClick = () => this.props.toggleOpen(this.props.article.id);
 }
 
-export default Article
+export default Article;
