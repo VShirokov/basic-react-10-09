@@ -28,7 +28,4 @@ const mapDispatchToProps = {
   handleIncrement: increment
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter)
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)

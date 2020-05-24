@@ -72,7 +72,4 @@ class Article extends PureComponent {
   }
 }
 
-export default connect(
-  null,
-  { deleteArticle }
-)(Article)
+export default connect(null, { deleteArticle })(Article)
